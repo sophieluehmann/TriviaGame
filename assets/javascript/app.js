@@ -1,18 +1,39 @@
 //create an array of questions
-var answers = [
-    ['a'],
-    ['b'],
-    ['c']
+var questions = [
+    {
+    question: 'What is the first letter of the alphabet?'  ,
+    options: ["a", "b", "c"],
+    correctAnswer: "a",
+    },
+    {
+    question: 'What is the second letter of the alphabet?'  ,
+    options: ["a", "b", "c"],
+    correctAnswer: "b",
+    },
+    {
+    question: 'What is the third letter of the alphabet?'  ,
+    options: ["a", "b", "c"],
+    correctAnswer: "c",
+    }
 ];
 
-var totalQuestions = answers.length;
+
+for (var i=0; i<questions.length; i++){
+    $(".container").append("<h3>" + questions[i].question +"</h3>");
+    for (var j = 0; j<questions[i].options.length; j++) {
+        $(".container").append("<input type='radio' name='question" + i + "' value=" +  questions[i].options[j] + ">" + questions[i].options[j]);
+    };
+};
+
+
+
 
 // zero?
 var correct = 0;
 var incorrect = 0;
 
 $(document).ready(function(){
-    $("form").hide();
+    $(".container").hide();
     $("#submit").hide();
     $("#start").on("click", start);
     $("h4").hide();
@@ -35,78 +56,52 @@ function count() {
     time--;
     $("#time-left").text(time);
     if (time == 0) {
-        $("#time-left").hide();
-        $("form").hide();
-        $("button").hide();
-        $("body").append("You got " + correct + " correct and " + incorrect + " incorrect.");
-        $("h4").hide();
+        endFunction();
     };
 };
 
 
 $("#start").click(function(){
-    $("form").show();
+    $(".container").show();
     $("#start").hide();
     $("#submit").show();
     $("h4").show();
 });
 
-$("#submit").click(function(){
+$("#submit").click(function() {
+    clearInterval(intervalId);
+    endFunction();
+});
+
+function endFunction (){
     $("#time-left").hide();
     $("form").hide();
     $("button").hide();
-    $("body").append("You got " + correct + " correct and " + incorrect + " incorrect.");
-});
-
-
-/*when 'done' button is clicked, execute function
-$("#submit").click(function(){
     
-    var test = document.forms[0];
-   
-    for (var i = 0; i < test.length; i++){
-        //var value = $("#option").attr("value");
-        if (test[i].checked) {
-            
-            console.log(test[i]);
-        }
+    
+    //this would be a lot simpler with a for loop
+    if ($("input[name=question0]:checked").val() === questions[0].correctAnswer) {
+        correct++;
+    } else {
+        incorrect++;
     }
-});
-*/
+    if ($("input[name=question1]:checked").val() === questions[1].correctAnswer) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if ($("input[name=question2]:checked").val() === questions[2].correctAnswer) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    
+    $("body").append("You got " + correct + " correct and " + incorrect + " incorrect.");
+};
 
-/*<div class="container">
-    <form>
-            <div id="question1">
-                <p>What is the first letter of the alphabet?</p>
+      
+//var wins = 0;
+//var loss = 0;
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question1" id="exampleRadios1" value="a">
-                        <label class="form-check-label" for="exampleRadios1">
-                             </label>
-                    </div>
-                
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question1" id="exampleRadios2" value="b">
-                        <label class="form-check-label" for="exampleRadios2">
-                        b
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name=" " id="exampleRadios3" value="c">
-                        <label class="form-check-label" for="exampleRadios3">
-                        c
-                        </label>
-                    </div>
-            </div>
-    </form>
-</div>
-*/
-
-var wins = 0;
-var loss = 0;
-
-/*$("#submit").on("click", function{
-    if(document.forms.question1)
-})*/
 
 
