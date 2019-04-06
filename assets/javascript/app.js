@@ -6,15 +6,20 @@ var questions = [
     correctAnswer: "3600",
     },
     {
-    question: 'What is the second letter of the alphabet?'  ,
-    options: ["a", "b", "c"],
-    correctAnswer: "b",
+    question: 'People who suffer from anatidaephobia are afraid of?'  ,
+    options: ["Pancakes", "Ducks", "Chairs"],
+    correctAnswer: "Ducks",
     },
     {
-    question: 'What is the third letter of the alphabet?'  ,
-    options: ["a", "b", "c"],
-    correctAnswer: "c",
-    }
+    question: 'What is the charge of a proton?'  ,
+    options: ["+1", "-1", "0 (neutral)"],
+    correctAnswer: "+1",
+    },
+    {
+    question: 'What is the unit of measure for sound?',
+    options: ["Decibel", "Ampere", "Volt"],
+    correctAnswer: "Decibel",
+    }   
 ];
 
 
@@ -35,7 +40,7 @@ $(document).ready(function(){
     $("h4").hide();
 })
 
-var time = 10;
+var time = 20;
 var intervalId;
 var clockRunning = false;
 
@@ -87,6 +92,11 @@ function endFunction (){
         incorrect++;
     }
     if ($("input[name=question2]:checked").val() === questions[2].correctAnswer) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if ($("input[name=question3]:checked").val() === questions[3].correctAnswer) {
         correct++;
     } else {
         incorrect++;
