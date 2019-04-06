@@ -1,9 +1,9 @@
-//create an array of questions
+    //create an array of questions
 var questions = [
     {
-    question: 'What is the first letter of the alphabet?'  ,
-    options: ["a", "b", "c"],
-    correctAnswer: "a",
+    question: 'How many seconds are in an hour?'  ,
+    options: ["5000", "2500", "3600"],
+    correctAnswer: "3600",
     },
     {
     question: 'What is the second letter of the alphabet?'  ,
@@ -25,10 +25,6 @@ for (var i=0; i<questions.length; i++){
     };
 };
 
-
-
-
-// zero?
 var correct = 0;
 var incorrect = 0;
 
@@ -100,8 +96,5 @@ function endFunction (){
 };
 
       
-//var wins = 0;
-//var loss = 0;
-
 
 

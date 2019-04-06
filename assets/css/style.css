@@ -1,6 +1,36 @@
-h4 {
+body {
     background-color: pink;
     width: 75%;
     margin: auto;
-    color: red;
+};
+
+h1 {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    background-color: white;
+    color: white;
+};
+
+.container {
+    background-color: pink;
+    text-align: center;
+    line-height: 1.5;
+    border-radius: 3px;
+    padding: 10px;
+};
+
+input {
+    text-align: center;
+    color: red; 
+}
+
+#time-left {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+    float: inline-start;
+    text-align: center;
+    margin: 15px;
 }
